@@ -1,0 +1,4 @@
+OKR - Brandon Davis
+-------------------
+integrating sounds into the game (develop how sanity might effect the sounds) (estimate: 4-5hrs) by 3/10
+basic UI (display sanity and possibly item text showing you what you have picked up.) -- (estimate: 4hrs) by 3/9
