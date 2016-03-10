@@ -18,7 +18,7 @@ public class SanityManagerScript : MonoBehaviour {
     private Light myLight;
     private Camera myCamera;
     public RawImage myImage;
-
+    public Slider SanitySlider;
     private float sanity;
     private bool sanityUpdated;
 
@@ -63,6 +63,7 @@ public class SanityManagerScript : MonoBehaviour {
 
         // initialize sanity number to be 100
         sanity = 100;
+        SanitySlider.value = 100;
         sanityUpdated = false;
 	}
 
@@ -129,6 +130,7 @@ public class SanityManagerScript : MonoBehaviour {
         if (sanity > 0)
         {
             sanity = newSanity;
+            SanitySlider.value = newSanity;
             // the values are no longer correct for the current sanity value
             sanityUpdated = true;
         }
