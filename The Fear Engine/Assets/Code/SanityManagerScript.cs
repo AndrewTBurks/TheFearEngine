@@ -19,13 +19,16 @@ public class SanityManagerScript : MonoBehaviour {
     private Camera myCamera;
     public RawImage myImage;
     public Slider SanitySlider;
+
+    public GameObject myPlayer;
+
     private float sanity;
     private bool sanityUpdated;
 
     /* starting numbers for light/camera/movement properties */
     // light source
-    private float intensityStart = 0.01f;
-    private float intensityEnd = 0.018f;
+    private float intensityStart = .01f;
+    private float intensityEnd = .018f;
     private float rangeStart = 30;
     private float rangeEnd = 15;
     private Color colorStart = new Color(100, 100, 100);
@@ -50,6 +53,10 @@ public class SanityManagerScript : MonoBehaviour {
         myLight = GetComponentInChildren<Light>();
         myCamera = GetComponentInChildren<Camera>();
         myImage = GetComponentInChildren<Canvas>().GetComponentInChildren<RawImage>();
+
+        myPlayer = GameObject.Find("FPSController");
+
+        myLight.transform.parent = myPlayer.transform;
 
         // initialize all image, light and camera values to be starting values for full sanity
 
@@ -107,7 +114,7 @@ public class SanityManagerScript : MonoBehaviour {
         }
 
         // to test updates
-        UpdateSanity(sanity - (6 * Time.deltaTime));
+        UpdateSanity(sanity - (6f * Time.deltaTime));
 	}
 
 
@@ -115,7 +122,7 @@ public class SanityManagerScript : MonoBehaviour {
      * To return the value of the player's sanity call this function
      * 
     */
-    float GetSanity()
+    public float GetSanity()
     {
         return sanity;
     }
@@ -125,7 +132,7 @@ public class SanityManagerScript : MonoBehaviour {
      * To update the player's sanity call this function
      * 
     */
-    void UpdateSanity(float newSanity)
+    public void UpdateSanity(float newSanity)
     {
         if (sanity > 0)
         {
