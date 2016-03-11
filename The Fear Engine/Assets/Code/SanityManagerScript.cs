@@ -12,6 +12,7 @@
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class SanityManagerScript : MonoBehaviour {
@@ -34,28 +35,30 @@ public class SanityManagerScript : MonoBehaviour {
     private Color colorStart = new Color(100, 100, 100);
     private Color colorEnd = new Color(150, 50, 50);
     // camera
-    private float fovStart = 40;
-    private float fovEnd = 55;
+    private float fovStart = 60;
+    private float fovEnd = 80;
     // image
     private float alphaStart = 0;
     private float alphaEnd = 0.8f;
 
-    private float proximityDecayCoeff = 0.25f;
+    private float proximityDecayCoeff = 0.2f;
 
     // movement (UNUSED FOR NOW)
-    private float speedStart = 10;
-    private float speedEnd = 7;
+    // private float speedStart = 10;
+    // private float speedEnd = 7;
     /*=======================================================*/
 
 	void Start ()
     {
         // get image, light and camera objects which are children of the SanityManager
 
+		myPlayer = GameObject.Find("FPSController");
+
         myLight = GetComponentInChildren<Light>();
-        myCamera = GetComponentInChildren<Camera>();
+        myCamera = myPlayer.GetComponentInChildren<Camera>();
         myImage = GetComponentInChildren<Canvas>().GetComponentInChildren<RawImage>();
 
-        myPlayer = GameObject.Find("FPSController");
+        
 
         myLight.transform.parent = myPlayer.transform;
 
@@ -77,6 +80,11 @@ public class SanityManagerScript : MonoBehaviour {
 
     void Update ()
     {
+		if (sanity <= 0) // game over
+		{
+			SceneManager.LoadScene ("LossScene");
+		}
+
         if (sanityUpdated) // if sanity is updated then update the light/camera/etc.
         {
             float newIntensity;
