@@ -40,6 +40,7 @@ public class SanityManagerScript : MonoBehaviour {
     private float alphaStart = 0;
     private float alphaEnd = 0.8f;
 
+    private float proximityDecayCoeff = 0.25f;
 
     // movement (UNUSED FOR NOW)
     private float speedStart = 10;
@@ -109,12 +110,14 @@ public class SanityManagerScript : MonoBehaviour {
 
             myImage.color = new Color(myImage.color.r, myImage.color.g, myImage.color.b, newAlphaVal);
 
+            SanitySlider.value = sanity;
+
             // all values are correct for the current sanity now
             sanityUpdated = false;
         }
 
-        // to test updates
-        UpdateSanity(sanity - (6f * Time.deltaTime));
+        // to decrease sanity depending on how close the proximity enemies are
+        AddSanity(CalculateSanityDecreaseByEnemy());
 	}
 
 
@@ -129,7 +132,7 @@ public class SanityManagerScript : MonoBehaviour {
 
 
     /*
-     * To update the player's sanity call this function
+     * To update the player's sanity to a value call this function
      * 
     */
     public void UpdateSanity(float newSanity)
@@ -137,9 +140,43 @@ public class SanityManagerScript : MonoBehaviour {
         if (sanity > 0)
         {
             sanity = newSanity;
-            SanitySlider.value = newSanity;
+
             // the values are no longer correct for the current sanity value
             sanityUpdated = true;
         }
+    }
+
+    /*
+     * To add a number to the player's sanity call this function
+     * 
+    */
+    public void AddSanity(float increment)
+    {
+        if (sanity > 0)
+        {
+            sanity += increment;
+            
+            // the values are no longer correct for the current sanity value
+            sanityUpdated = true;
+        }
+    }
+
+    float CalculateSanityDecreaseByEnemy()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("ProximityEnemy");
+        float sanityDecrease = 0;
+
+        foreach (var e in enemies)
+        {
+            float distance = Vector3.Distance(myPlayer.transform.position, e.transform.position);
+
+            if (distance < 30) // upper bound on distance at which it begins to decrease
+            {
+                // adds at most 2f ( so value doesn't go to infinity at close distance )
+                sanityDecrease += proximityDecayCoeff / distance > proximityDecayCoeff ? proximityDecayCoeff : proximityDecayCoeff / distance;
+            }
+        }
+
+        return -1 * sanityDecrease;
     }
 }
