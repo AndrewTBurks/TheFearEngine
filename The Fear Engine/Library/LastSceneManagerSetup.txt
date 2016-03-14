@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
 - path: Assets/Scenes/hmwk8.unity
-=======
-- path: Assets/Scenes/protoScene2.unity
->>>>>>> origin/master
   isLoaded: 1
   isActive: 1

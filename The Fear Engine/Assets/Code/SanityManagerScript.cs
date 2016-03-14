@@ -19,7 +19,7 @@ public class SanityManagerScript : MonoBehaviour {
     private Light myLight;
     private Camera myCamera;
     public RawImage myImage;
-    public Slider SanitySlider;
+    public RawImage sanityBar;
 
     public GameObject myPlayer;
 
@@ -40,6 +40,9 @@ public class SanityManagerScript : MonoBehaviour {
     // image
     private float alphaStart = 0;
     private float alphaEnd = 0.8f;
+    // sanity bar
+    private float startScaleX = 2;
+    private float endScaleX = 0.15f;
 
     private float proximityDecayCoeff = 0.2f;
 
@@ -56,10 +59,8 @@ public class SanityManagerScript : MonoBehaviour {
 
         myLight = GetComponentInChildren<Light>();
         myCamera = myPlayer.GetComponentInChildren<Camera>();
-        myImage = GetComponentInChildren<Canvas>().GetComponentInChildren<RawImage>();
 
-        
-
+        myLight.transform.position = myPlayer.transform.position + Vector3.up * 5;
         myLight.transform.parent = myPlayer.transform;
 
         // initialize all image, light and camera values to be starting values for full sanity
@@ -71,10 +72,10 @@ public class SanityManagerScript : MonoBehaviour {
         myCamera.fieldOfView = fovStart;
 
         myImage.color = new Color(myImage.color.r, myImage.color.g, myImage.color.b, alphaStart);
+        sanityBar.transform.localScale = new Vector3(2, 2, 2);
 
         // initialize sanity number to be 100
         sanity = 100;
-        SanitySlider.value = 100;
         sanityUpdated = false;
 	}
 
@@ -92,22 +93,30 @@ public class SanityManagerScript : MonoBehaviour {
             Color newColor;
             float newFieldOfView;
             float newAlphaVal;
+            Vector3 newScale;
+
 
             float sanityPercent = sanity / 100;
 
             // Calculate new light Intensity
             newIntensity = intensityEnd - ((intensityEnd - intensityStart) * sanityPercent);
+
             // Calculate new light Range
             newRange = rangeEnd - ((rangeEnd - rangeStart) * sanityPercent);
+
             // Calculate new light Color
             newColor = new Color(colorEnd.r - ((colorEnd.r - colorStart.r)* sanityPercent),
                 colorEnd.g - ((colorEnd.g - colorStart.g) * sanityPercent),
                 colorEnd.b - ((colorEnd.b - colorStart.b) * sanityPercent));
+
             // Calculate new Field of View
             newFieldOfView = fovEnd - ((fovEnd - fovStart) * sanityPercent);
+
             // Calculate new Alpha value for image
             newAlphaVal = alphaEnd - ((alphaEnd - alphaStart) * sanityPercent);
 
+            // calculate new scale for sanity bar
+            newScale = new Vector3(endScaleX - ((endScaleX - startScaleX) * sanityPercent), 2, 2);
 
             // Now update the image, light and camera to have these new values
             myLight.intensity = newIntensity;
@@ -118,7 +127,7 @@ public class SanityManagerScript : MonoBehaviour {
 
             myImage.color = new Color(myImage.color.r, myImage.color.g, myImage.color.b, newAlphaVal);
 
-            SanitySlider.value = sanity;
+            sanityBar.transform.localScale = newScale;
 
             // all values are correct for the current sanity now
             sanityUpdated = false;
