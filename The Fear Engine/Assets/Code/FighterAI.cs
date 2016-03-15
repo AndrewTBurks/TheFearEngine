@@ -27,13 +27,30 @@ public class FighterAI : MonoBehaviour {
     
     private float[, ,] probTable;
 
-    private float prevMov1;
-    private float prevMov2;
+	private int prevMov1; // last move
+    private int prevMov2; // second to last move
 
     // Action 1 will have the remaining probability to fill total to 1.
-    /*    NOTE:   pAct1 = 1 - (pMaxAct2 + pMaxAct3) */
+	private float pMaxAct1 = 0.8f;
+    /*    NOTE:   pAct1 = 1 - (pMaxAct2 + pMaxAct3) when randomized*/
     private float pMaxAct2 = 0.27f;
     private float pMaxAct3 = 0.20f;
+
+	// Minimum probabilities for actions
+	private float pMinAct1 = 0.53f;
+	private float pMinAct2 = 0.10f;
+	private float pMinAct3 = 0.10f;
+
+
+	// Min values for actions to scale by probability
+	private float vMinAct1 = 5;
+	private float vMinAct2 = 10;
+	private float vMinAct3 = 2;
+
+	// Max bonus amount for low probability of the action
+	private float vBonusAct1 = 5;
+	private float vBonusAct2 = 10;
+	private float vBonusAct3 = 2;
 
 
 	// Use this for initialization
@@ -49,7 +66,7 @@ public class FighterAI : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-	    
+		pickMoveAndPerform ();
 	}
 
     /* Initialize the probability table to a bounded range for each action */
@@ -59,40 +76,126 @@ public class FighterAI : MonoBehaviour {
         {
             for(int j = 0; j < 4; j++)
             {
-                probTable[i, j, 0] = 0; // not an action
-                probTable[i, j, 2] = Random.Range(0.1f, pMaxAct2);
-                probTable[i, j, 3] = Random.Range(0.1f, pMaxAct3);
+				// lower probability of action 2 if it is in the last two
+				if (j == 2 || i == 2) // 1/4 probability for Action 2
+				{ 
+					probTable[i, j, 2] = Random.Range(pMinAct2/2, pMaxAct2/2);
+				} 
+				else // normal probability
+				{
+					probTable[i, j, 2] = Random.Range(pMinAct2, pMaxAct2);
+				}
+
+				// Lower probability of action 3 if it is in the last two
+				if (j == 3 || i == 3) // 1/4 probability for Action 3
+				{
+					probTable[i, j, 3] = Random.Range(pMinAct3/2, pMaxAct3/2);
+				}
+				else // normal probability
+				{
+					probTable[i, j, 3] = Random.Range(pMinAct3, pMaxAct3);
+				}
+                
+				probTable[i, j, 0] = 0; // not an action
                 probTable[i, j, 1] = 1 - (probTable[i, j, 2] + probTable[i, j, 3]);
             }
         }
     }
 
+	private void pickMoveAndPerform()
+	{
+		float p1 = probTable[prevMov2, prevMov1, 1];
+		float p2 = probTable[prevMov2, prevMov1, 2];
+		float p3 = probTable[prevMov2, prevMov1, 3];
+
+		float randGen = Random.value;
+
+		if (randGen <= p1) 
+		{
+			Attack (p1);
+		} 
+		else if (randGen <= (p1 + p2)) 
+		{
+			SlowRegen (p2);
+		} 
+		else 
+		{
+			SplitEnemy (p3);
+		}
+	}
+
     /* ACTION 1: Perform a basic melee attack */
-    private void Attack()
+	private void Attack(float prob)
     {
+		// prob := probability of move 1 occurring given previous two
+
         // advance move history
         prevMov2 = prevMov1;
         prevMov1 = 1;
 
-        float damage; // scales by probability
+		// scales by probability
+		float scaleFactor = (prob-pMinAct1)/(pMaxAct1-pMinAct1);
+		// smaller scale factor => higher bonus for rarity
+		float damage = vMinAct1 + (vBonusAct1 * (1 - scaleFactor)); 
+
+		// DO ATTACK
+
+		StartCoroutine (ActionWait(2));
     }
 
     /* ACTION 2: Cast a regen spell on themselves, healing for a small amount */
-    private void SlowRegen()
+	private void SlowRegen(float prob)
     {
+		// prob := probability of move 2 occurring given previous two
+
         // advance move history
         prevMov2 = prevMov1;
-        prevMov1 = 1;
-        float regenAmt; // scales by probability
+        prevMov1 = 2;
+
+		// scales by probability
+		float scaleFactor = (prob-pMinAct2)/(pMaxAct2-pMinAct2);
+		// smaller scale factor => higher bonus for rarity
+		float regenAmt = vMinAct2 + (vBonusAct2 * (1 - scaleFactor));
+
+		// REGEN IN COROUTINE
+		StartCoroutine(RegenWait(regenAmt));
     }
 
     /* ACTION 3: Create numEnemies small copies of current enemy */
-    private void SplitEnemy()
+	private void SplitEnemy(float prob)
     {
+		// prob := probability of move 3 occurring given the previous two
+
         // advance move history
         prevMov2 = prevMov1;
-        prevMov1 = 1;
-        int numEnemies; // scales by probability
+        prevMov1 = 3;
+
+		// scales by probability
+		float scaleFactor = (prob-pMinAct3)/(pMaxAct3-pMinAct3);
+		// smaller scale factor => higher bonus for rarity
+		int numEnemies = (int)Mathf.Floor(vMinAct3 + (vBonusAct3 * (1 - scaleFactor))); // floor since it can't spawn partial enemies..
+
+		// DO SPLIT
+
+		StartCoroutine (ActionWait(5));
     }
+
+	// Coroutine to wait between actions for numSec
+	IEnumerator ActionWait(int numSec)
+	{
+		yield return new WaitForSeconds (numSec);
+	}
+
+	// Coroutine to slowly regen the health
+	IEnumerator RegenWait(float amt)
+	{
+		float increment = amt / 50;
+		for (float i = 0f; i < amt; i += increment) 
+		{
+			// do regen thing
+
+			yield return new WaitForSeconds(0.1f);
+		}
+	}
 
 }

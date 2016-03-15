@@ -41,8 +41,8 @@ public class SanityManagerScript : MonoBehaviour {
     private float alphaStart = 0;
     private float alphaEnd = 0.8f;
     // sanity bar
-    private float startScaleX = 2;
-    private float endScaleX = 0.15f;
+    private float startScaleX = 1;
+    private float endScaleX = 0.075f;
 
     private float proximityDecayCoeff = 0.2f;
 
@@ -72,7 +72,8 @@ public class SanityManagerScript : MonoBehaviour {
         myCamera.fieldOfView = fovStart;
 
         myImage.color = new Color(myImage.color.r, myImage.color.g, myImage.color.b, alphaStart);
-        sanityBar.transform.localScale = new Vector3(2, 2, 2);
+		sanityBar.transform.position = new Vector3 (0, 0, 0);
+        sanityBar.transform.localScale = new Vector3(1, 1, 1);
 
         // initialize sanity number to be 100
         sanity = 100;
@@ -116,7 +117,7 @@ public class SanityManagerScript : MonoBehaviour {
             newAlphaVal = alphaEnd - ((alphaEnd - alphaStart) * sanityPercent);
 
             // calculate new scale for sanity bar
-            newScale = new Vector3(endScaleX - ((endScaleX - startScaleX) * sanityPercent), 2, 2);
+			newScale = new Vector3(endScaleX - ((endScaleX - startScaleX) * sanityPercent), sanityBar.transform.localScale.y, sanityBar.transform.localScale.z);
 
             // Now update the image, light and camera to have these new values
             myLight.intensity = newIntensity;
