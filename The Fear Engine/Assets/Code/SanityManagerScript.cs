@@ -51,7 +51,7 @@ public class SanityManagerScript : MonoBehaviour {
     // private float speedEnd = 7;
     /*=======================================================*/
 
-	void Start ()
+	void Awake ()
     {
         // get image, light and camera objects which are children of the SanityManager
 
