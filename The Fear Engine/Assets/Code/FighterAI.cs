@@ -149,9 +149,11 @@ public class FighterAI : MonoBehaviour
         // smaller scale factor => higher bonus for rarity
         float damage = vMinAct1 + (vBonusAct1 * (1 - scaleFactor));
 
-        /* ========= TO DO ATTACK ========== */
-
+        /* ========= DO ATTACK ========== */
+        gameObject.GetComponent<enemyAI1>().Shoot();
+        
         yield return new WaitForSeconds(1);
+
         pickMoveAndPerform(); // Choose next move after return
     }
 
@@ -178,10 +180,9 @@ public class FighterAI : MonoBehaviour
         for (float i = 0f; i < regenAmt; i += increment)
         {
             /* ========= DO REGEN ========== */
+            yield return new WaitForSeconds(0.1f);
 
             myHPSystem.AddHealth(increment);
-
-            yield return new WaitForSeconds(0.1f);  
         }
 
         pickMoveAndPerform(); // Choose next move after return
@@ -211,13 +212,11 @@ public class FighterAI : MonoBehaviour
         {
             newChildVector = new Vector3(5, 0, 0);
             newChildVector = Quaternion.Euler(0, i * (360 / numEnemies + 1), 0) * newChildVector;
-            GameObject newChild = Instantiate(gameObject);
-            newChild.transform.position = this.transform.position + newChildVector;
+            GameObject newChild = Instantiate(gameObject, transform.position + newChildVector, Quaternion.identity) as GameObject;
             newChild.transform.localScale *= 0.4f;
             // temporary enemy with timeout script
             newChild.AddComponent<EnemyTimeout>();
             Destroy(newChild.GetComponent<FighterAI>());
-            Destroy(newChild.GetComponent<EnemyHealthSystem>());
             Destroy(newChild.GetComponent<EnemyHealthSystem>());
         }
 

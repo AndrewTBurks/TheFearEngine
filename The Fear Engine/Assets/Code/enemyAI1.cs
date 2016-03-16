@@ -48,7 +48,7 @@ public class enemyAI1 : MonoBehaviour {
         }
     }
 
-    void Shoot()
+    public void Shoot()
     {
 
         if (onRange)

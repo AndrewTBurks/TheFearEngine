@@ -2,23 +2,23 @@
 using System.Collections;
 
 public class EnemyHealthSystem : MonoBehaviour {
-    public GameObject healthBar;
+    public GameObject healthBar;     // prefab health bar to use
 
     private GameObject myHealthBar;
     private HealthBarUpdater hbu;
     private float myHealth;
 
 	// Use this for initialization
-	void Awake ()
+	void Start ()
     {
-        myHealth = 20;
+        myHealth = 100;
         myHealthBar = Instantiate(healthBar);
-        hbu = healthBar.GetComponent<HealthBarUpdater>();
+        hbu = myHealthBar.GetComponent<HealthBarUpdater>();
         myHealthBar.transform.position = gameObject.transform.position + (Vector3.up * 2f);
         myHealthBar.transform.parent = gameObject.transform;
 
         // scale once to start
-        hbu.RescaleHealth(myHealth);
+        hbu.SetHealth(myHealth);
     }
 	
 	// Update is called once per frame
@@ -30,13 +30,10 @@ public class EnemyHealthSystem : MonoBehaviour {
     /* Add Positive of Negative amount of health to this Enemy */
     public void AddHealth(float deltaHealth)
     {
-        print("In AddHealth");
-        print(myHealth);
         // increment local health val and scale the bar
-        myHealth = (myHealth + deltaHealth)%100;
-        hbu.RescaleHealth(myHealth);
+        myHealth = myHealth + deltaHealth;
+        hbu.SetHealth(myHealth);
     }
-
 
     void OnDestroy()
     {
