@@ -44,7 +44,7 @@ public class SanityManagerScript : MonoBehaviour {
     private float startScaleX = 1;
     private float endScaleX = 0.075f;
 
-    private float proximityDecayCoeff = 0.2f;
+    private float proximityDecayCoeff = 0.05f;
 
     // movement (UNUSED FOR NOW)
     // private float speedStart = 10;
@@ -187,8 +187,9 @@ public class SanityManagerScript : MonoBehaviour {
         foreach (var e in enemies)
         {
             float distance = Vector3.Distance(myPlayer.transform.position, e.transform.position);
+            float yDistance = Mathf.Abs(myPlayer.transform.position.y - e.transform.position.y);
 
-            if (distance < 30) // upper bound on distance at which it begins to decrease
+            if (yDistance <= 5 && distance < 30) // upper bound on distance at which it begins to decrease
             {
                 // adds at most 2f ( so value doesn't go to infinity at close distance )
                 sanityDecrease += proximityDecayCoeff / distance > proximityDecayCoeff ? proximityDecayCoeff : proximityDecayCoeff / distance;
