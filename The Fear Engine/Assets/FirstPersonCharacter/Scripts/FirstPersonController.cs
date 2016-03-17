@@ -63,6 +63,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float timer;
         private float tmpspeed;
         private bool webbed;
+        public bool hasSword;
+        public GameObject sword;
         // Use this for initialization
         private void Start()
         {
@@ -116,6 +118,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_RunSpeed = tmpspeed;
                 webbed = false;
             }
+            if (hasSword)
+            {
+                GameObject newobj = (GameObject)Instantiate(sword, this.transform.position + Vector3.right*-.5f, Quaternion.Euler(45,90,45) );
+                newobj.transform.parent = this.transform;
+                
+                hasSword = false;
+            }
+            
 
         }
 
