@@ -10,6 +10,11 @@ public class WebTime : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Object.Destroy(this.gameObject, 2.0f);
+        
 	}
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag != "Spider")
+        { Object.Destroy(this.gameObject); }
+    }
 }

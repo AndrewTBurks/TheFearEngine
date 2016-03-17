@@ -76,9 +76,9 @@ public class enemyAI1 : MonoBehaviour {
 
             //Rigidbody projectile = (Rigidbody)Instantiate(web, transform.position + transform.forward, transform.rotation);
             GameObject project = Instantiate(web) as GameObject;
-            project.transform.position = transform.position + transform.forward * 3f;
+            project.transform.position = transform.position + transform.forward * 1f +Vector3.up;
             Rigidbody rb = project.GetComponent<Rigidbody>();
-            rb.velocity = this.transform.forward * 30 + Vector3.up * 5f;
+            rb.velocity = this.transform.forward * 30 + Vector3.up * 2f;
             //web.AddForce(transform.forward * bulletImpulse, ForceMode.Impulse);
 
             //Destroy(web.gameObject, 2);
