@@ -65,15 +65,20 @@ public class FighterAI : MonoBehaviour
         prevMov1 = 0;
         prevMov2 = 0;
 
+        // turn off autoShoot in basic enemyAI1 script
+        GetComponent<enemyAI1>().autoShoot = false;
+
         // pick a move from the start, after wait times, subsequent moves picked
         pickMoveAndPerform();
     }
 
     // Update is called once per frame
+    /*
     void Update()
     {
-
+        // unused
     }
+    */
 
     /* Initialize the probability table to a bounded range for each action */
     private void InitProbTable()

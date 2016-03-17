@@ -19,16 +19,17 @@ public class enemyAI1 : MonoBehaviour {
     private float aggroRange = 30;
     private float waitingTime = 5;
     private float timer;
+
+    public bool autoShoot; // to turn off auto shooting behavior in Update() when Shoot() is used in FighterAI
+
     void Awake()
     {
         myEnemy = transform;
         //Physics.IgnoreLayerCollision(8, 0, true);
         // Physics.IgnoreCollision(GetComponent<Collider>(myEnemy), terrain.collider);
-    }
 
-    void Start()
-    {
         targetPlayer = GameObject.FindWithTag("Player").transform;
+        autoShoot = true;
     }
 
     void Update()
@@ -40,7 +41,7 @@ public class enemyAI1 : MonoBehaviour {
         myEnemy.position += myEnemy.forward * moveSpeed * Time.deltaTime;
         float seperation = Vector3.Distance(this.transform.position, targetPlayer.transform.position);
         timer += Time.deltaTime;
-        if (seperation <= aggroRange && timer > waitingTime)
+        if (seperation <= aggroRange && timer > waitingTime && autoShoot)
         {
             onRange = true;
             Shoot();
