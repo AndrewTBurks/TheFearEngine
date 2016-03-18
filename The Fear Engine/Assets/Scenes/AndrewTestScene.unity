@@ -352,7 +352,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2cbe268c038dd4c4c92a673367d37743, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.75
+      value: 0.54
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2cbe268c038dd4c4c92a673367d37743, type: 3}
       propertyPath: m_LocalScale.y
@@ -626,3 +626,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!1 &2052354417 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 180698, guid: 46a74c456f9099f4b930a3f79e757e66, type: 2}
+  m_PrefabInternal: {fileID: 126427936}
+--- !u!65 &2052354425
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2052354417}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.34, y: 1.39, z: 1.36}
+  m_Center: {x: 0, y: 0, z: 0}

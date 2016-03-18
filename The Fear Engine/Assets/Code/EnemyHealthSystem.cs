@@ -7,9 +7,10 @@ public class EnemyHealthSystem : MonoBehaviour {
     private GameObject myHealthBar;
     private HealthBarUpdater hbu;
     private float myHealth;
+    private float atkDamage = -10; //change number here for more damage.
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         myHealth = 100;
         myHealthBar = Instantiate(healthBar);
@@ -25,6 +26,10 @@ public class EnemyHealthSystem : MonoBehaviour {
 	void Update ()
     {
         myHealthBar.transform.LookAt(Camera.main.transform);
+        if (myHealth == 0)
+        {
+            Destroy(this.gameObject);
+        }
 	}
 
     /* Add Positive of Negative amount of health to this Enemy */
@@ -33,6 +38,14 @@ public class EnemyHealthSystem : MonoBehaviour {
         // increment local health val and scale the bar
         myHealth = myHealth + deltaHealth;
         hbu.SetHealth(myHealth);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "PickUp" && Input.GetMouseButton(0) )
+        {
+            AddHealth(atkDamage); 
+        }
     }
 
     void OnDestroy()

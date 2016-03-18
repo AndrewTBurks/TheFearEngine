@@ -117,6 +117,8 @@ public class WeaponBehavior : MonoBehaviour {
             canPickup = true;
             playerInRange = other.gameObject;
         }
+
+       
     }
 
     void OnTriggerExit(Collider other)
@@ -136,4 +138,6 @@ public class WeaponBehavior : MonoBehaviour {
 
         }
     }
+
+    
 }
