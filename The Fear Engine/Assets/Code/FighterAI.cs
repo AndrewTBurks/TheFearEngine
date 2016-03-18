@@ -29,6 +29,7 @@ public class FighterAI : MonoBehaviour
     private GameObject myRegenEffect;
 
     public GameObject clonePrefab; // prefab for clones of this monster
+    public bool spawnMobs = false;
 
     private float[,,] probTable;
 
@@ -208,34 +209,37 @@ public class FighterAI : MonoBehaviour
     /* ACTION 3: Create numEnemies small copies of current enemy */
     IEnumerator SplitEnemy(float prob)
     {
-        print("In Split");
-        // prob := probability of move 3 occurring given the previous two
-
-        // advance move history
-        prevMov2 = prevMov1;
-        prevMov1 = 3;
-
-        // scales by probability
-        float scaleFactor = (prob - pMinAct3) / (pMaxAct3 - pMinAct3);
-        // smaller scale factor => higher bonus for rarity
-        int numEnemies = (int)Mathf.Floor(vMinAct3 + (vBonusAct3 * (1 - scaleFactor))); // floor since it can't spawn partial enemies..
-
-        /* ========= DO SPLIT ========== */
-
-        Vector3 newChildVector;
-
-        for (int i = 0; i < numEnemies; i++)
+        if (spawnMobs)
         {
-            newChildVector = new Vector3(5, 0, 0);
-            newChildVector = Quaternion.Euler(0, i * (360 / numEnemies + 1), 0) * newChildVector;
-            GameObject newChild = Instantiate(clonePrefab, transform.position + newChildVector, Quaternion.identity) as GameObject;
-            newChild.transform.localScale *= 0.4f;
-            // temporary enemy with timeout script
-            newChild.AddComponent<EnemyTimeout>();
-        }
+            print("In Split");
+            // prob := probability of move 3 occurring given the previous two
 
-        yield return new WaitForSeconds(5);
-        pickMoveAndPerform(); // Choose next move after return
+            // advance move history
+            prevMov2 = prevMov1;
+            prevMov1 = 3;
+
+            // scales by probability
+            float scaleFactor = (prob - pMinAct3) / (pMaxAct3 - pMinAct3);
+            // smaller scale factor => higher bonus for rarity
+            int numEnemies = (int)Mathf.Floor(vMinAct3 + (vBonusAct3 * (1 - scaleFactor))); // floor since it can't spawn partial enemies..
+
+            /* ========= DO SPLIT ========== */
+
+            Vector3 newChildVector;
+
+            for (int i = 0; i < numEnemies; i++)
+            {
+                newChildVector = new Vector3(5, 0, 0);
+                newChildVector = Quaternion.Euler(0, i * (360 / numEnemies + 1), 0) * newChildVector;
+                GameObject newChild = Instantiate(clonePrefab, transform.position + newChildVector, Quaternion.identity) as GameObject;
+                newChild.transform.localScale *= 0.4f;
+                // temporary enemy with timeout script
+                newChild.AddComponent<EnemyTimeout>();
+            }
+
+            yield return new WaitForSeconds(5);
+            pickMoveAndPerform(); // Choose next move after return
+        }
     }
 
 }

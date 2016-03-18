@@ -14,10 +14,10 @@ public class enemyAI1 : MonoBehaviour {
     private RaycastHit hit;
     //public Transform terrain;
     public int sValue;
-    private int moveSpeed = 3;
+    public int moveSpeed = 3;
     private int rotationSpeed = 3;
     private bool onRange;
-    private float aggroRange = 30;
+    public float aggroRange = 30;
     private float waitingTime = 5;
     private float timer;
     private bool seePlayer;

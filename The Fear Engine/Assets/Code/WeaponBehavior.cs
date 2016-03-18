@@ -7,6 +7,7 @@ public class WeaponBehavior : MonoBehaviour {
     private GameObject playerInRange;
 
     private bool isAttached;
+    public bool obtained = false;
 
     public bool isAttacking;
     public bool enemyHit;
@@ -38,6 +39,7 @@ public class WeaponBehavior : MonoBehaviour {
             // use pickup 
 
             AttachWeapon();
+            obtained = true;
             
         }
         // drop this weapon on the ground if you have one
@@ -46,6 +48,7 @@ public class WeaponBehavior : MonoBehaviour {
             // use drop
 
             DetachWeapon();
+            obtained = false;
 
         }
 
