@@ -8,13 +8,16 @@ public class WeaponBehavior : MonoBehaviour {
 
     private bool isAttached;
 
-    private bool canSwing;
+    public bool isAttacking;
+    public bool enemyHit;
 
 	// Use this for initialization
 	void Start () {
         canPickup = false;
         playerInRange = null;
         isAttached = false;
+
+        isAttacking = false;
     }
 	
 	// Update is called once per frame
@@ -23,7 +26,7 @@ public class WeaponBehavior : MonoBehaviour {
         {
             transform.rotation = transform.rotation * Quaternion.Euler(0, 90*Time.deltaTime, 0);
         }
-        else if(isAttached && canSwing)
+        else if(isAttached && !isAttacking)
         {
             // face same direction as main camera
             transform.rotation = Camera.main.transform.rotation * Quaternion.Euler(0, -80, 10);
@@ -46,13 +49,19 @@ public class WeaponBehavior : MonoBehaviour {
 
         }
 
-        if(Input.GetMouseButtonDown(0) && isAttached && canSwing)
+        if(Input.GetMouseButtonDown(0) && isAttached && !isAttacking)
         {
-            StartCoroutine(SwingWeapon());
+            isAttacking = true;
+            GetComponent<Animation>().Play();
         }
+        
     }
 
-
+    public void AttackDone()
+    {
+        isAttacking = false;
+        enemyHit = false;
+    }
 
     // actions for picking up sword or dropping sword
     void AttachWeapon()
@@ -64,7 +73,7 @@ public class WeaponBehavior : MonoBehaviour {
         canPickup = false;
         isAttached = true;
 
-        canSwing = true;
+        isAttacking = false;
     }
 
     void DetachWeapon()
@@ -75,38 +84,9 @@ public class WeaponBehavior : MonoBehaviour {
         canPickup = true;
         isAttached = false;
 
-        canSwing = false;
+        isAttacking = false;
     }
 
-    // Swing weapon to attempt to hit enemy
-    IEnumerator SwingWeapon() // should probably use animator in future
-    {
-        canSwing = false;
-        // pull up to swing
-        for(int i = 0; i < 25; i++)
-        {
-            transform.rotation *= Quaternion.Euler(0, 0, 2);
-            yield return new WaitForSeconds(0.0005f);
-        }
-
-        // swing down
-        for(int i = 0; i < 20; i++)
-        {
-            transform.rotation *= Quaternion.Euler(0, 0, -4);
-            yield return new WaitForSeconds(0.0001f);
-        }
-
-        // back to normal height
-        for(int i = 0; i < 30; i++)
-        {
-            transform.rotation *= Quaternion.Euler(0, 0, 1);
-            yield return new WaitForSeconds(0.001f);
-        }
-
-        // .5 second wait time after 
-        yield return new WaitForSeconds(0.5f);
-        canSwing = true;
-    }
 
     //Displays press e to pick up if colliding with pick upable object.
     // handles collision detection if the player is in range

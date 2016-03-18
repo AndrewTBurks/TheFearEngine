@@ -25,6 +25,10 @@ using System.Collections;
 
 public class FighterAI : MonoBehaviour
 {
+    public GameObject regenEffect;
+    private GameObject myRegenEffect;
+
+    public GameObject clonePrefab; // prefab for clones of this monster
 
     private float[,,] probTable;
 
@@ -45,7 +49,7 @@ public class FighterAI : MonoBehaviour
 
     // Min values for actions to scale by probability
     private float vMinAct1 = 5;
-    private float vMinAct2 = 10;
+    private float vMinAct2 = 20;
     private float vMinAct3 = 2;
 
     // Max bonus amount for low probability of the action
@@ -64,6 +68,11 @@ public class FighterAI : MonoBehaviour
 
         prevMov1 = 0;
         prevMov2 = 0;
+
+        // create the particle system for the regen
+        myRegenEffect = Instantiate(regenEffect, gameObject.transform.position, gameObject.transform.rotation) as GameObject;
+        myRegenEffect.transform.parent = gameObject.transform;
+        myRegenEffect.SetActive(false); // hidden to begin with
 
         // turn off autoShoot in basic enemyAI1 script
         GetComponent<enemyAI1>().autoShoot = false;
@@ -167,6 +176,7 @@ public class FighterAI : MonoBehaviour
     IEnumerator SlowRegen(float prob)
     {
         print("In Regen");
+        myRegenEffect.SetActive(true);
         // prob := probability of move 2 occurring given previous two
 
         // advance move history
@@ -190,6 +200,7 @@ public class FighterAI : MonoBehaviour
             myHPSystem.AddHealth(increment);
         }
 
+        myRegenEffect.SetActive(false);
         pickMoveAndPerform(); // Choose next move after return
     }
 
@@ -217,12 +228,10 @@ public class FighterAI : MonoBehaviour
         {
             newChildVector = new Vector3(5, 0, 0);
             newChildVector = Quaternion.Euler(0, i * (360 / numEnemies + 1), 0) * newChildVector;
-            GameObject newChild = Instantiate(gameObject, transform.position + newChildVector, Quaternion.identity) as GameObject;
+            GameObject newChild = Instantiate(clonePrefab, transform.position + newChildVector, Quaternion.identity) as GameObject;
             newChild.transform.localScale *= 0.4f;
             // temporary enemy with timeout script
             newChild.AddComponent<EnemyTimeout>();
-            Destroy(newChild.GetComponent<FighterAI>());
-            Destroy(newChild.GetComponent<EnemyHealthSystem>());
         }
 
         yield return new WaitForSeconds(5);

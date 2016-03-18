@@ -26,7 +26,7 @@ public class EnemyHealthSystem : MonoBehaviour {
 	void Update ()
     {
         myHealthBar.transform.LookAt(Camera.main.transform);
-        if (myHealth == 0)
+        if (myHealth <= 0)
         {
             Destroy(this.gameObject);
         }
@@ -37,15 +37,32 @@ public class EnemyHealthSystem : MonoBehaviour {
     {
         // increment local health val and scale the bar
         myHealth = myHealth + deltaHealth;
+        if (myHealth > 100)
+        {
+            myHealth = 100;
+        }
+        else if (myHealth < 0)
+        {
+            myHealth = 0;
+        }
         hbu.SetHealth(myHealth);
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "PickUp" && Input.GetMouseButton(0) )
+        // other's weapon script
+        WeaponBehavior wb = other.gameObject.GetComponent<WeaponBehavior>();
+
+        if (other.tag == "PickUp" && wb.isAttacking && !wb.enemyHit)
         {
-            AddHealth(atkDamage); 
+            AddHealth(atkDamage);
+            wb.enemyHit = true;
         }
+    }
+
+    IEnumerator DamageCooldown(float time)
+    {
+        yield return new WaitForSeconds(time);
     }
 
     void OnDestroy()

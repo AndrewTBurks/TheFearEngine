@@ -27,10 +27,15 @@ public class HealthBarUpdater : MonoBehaviour
 
     public void SetHealth(float newHealth)
     {
-        if (health >= 0 && health <= 100)
+        health = newHealth;
+        if(health > 100)
         {
-            health = newHealth;
-            changed = true;
+            health = 100;
         }
+        else if (health < 0)
+        {
+            health = 0;
+        }
+        changed = true;
     }
 }
