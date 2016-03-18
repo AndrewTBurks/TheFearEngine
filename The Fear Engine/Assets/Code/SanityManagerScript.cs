@@ -87,6 +87,8 @@ public class SanityManagerScript : MonoBehaviour {
 			SceneManager.LoadScene ("LossScene");
 		}
 
+      
+
         if (sanityUpdated) // if sanity is updated then update the light/camera/etc.
         {
             float newIntensity;
