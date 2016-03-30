@@ -3,12 +3,12 @@ using System.Collections;
 
 public class EnemyHealthSystem : MonoBehaviour {
     public GameObject healthBar;     // prefab health bar to use
-
+    private Vector3 slamDistance;
     private GameObject myHealthBar;
     private HealthBarUpdater hbu;
     private float myHealth;
     private float atkDamage = -10; //change number here for more damage.
-
+    private Rigidbody rb;
     // Use this for initialization
     void Start ()
     {
@@ -17,7 +17,7 @@ public class EnemyHealthSystem : MonoBehaviour {
         hbu = myHealthBar.GetComponent<HealthBarUpdater>();
         myHealthBar.transform.position = gameObject.transform.position + (Vector3.up * 2f);
         myHealthBar.transform.parent = gameObject.transform;
-
+        rb = GetComponent<Rigidbody>();
         // scale once to start
         hbu.SetHealth(myHealth);
     }
@@ -57,6 +57,15 @@ public class EnemyHealthSystem : MonoBehaviour {
         {
             AddHealth(atkDamage);
             wb.enemyHit = true;
+            
+        }
+        if (other.tag == "PickUp" && wb.isPushing && !wb.enemyHit)
+        {
+            AddHealth(atkDamage);
+            rb.AddForce(transform.forward * -1000);
+            rb.AddForce(transform.up * 1000);
+            wb.enemyHit = true;
+
         }
     }
 
@@ -69,4 +78,6 @@ public class EnemyHealthSystem : MonoBehaviour {
     {
         Destroy(myHealthBar);
     }
+
+    
 }

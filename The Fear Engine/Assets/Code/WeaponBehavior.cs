@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class WeaponBehavior : MonoBehaviour {
 
     private bool canPickup;
     private GameObject playerInRange;
-
+    public Slider cdSlider;
     private bool isAttached;
     public bool obtained = false;
-
+    public float coolDown;
     public bool isAttacking;
     public bool enemyHit;
-
+    public bool isPushing;
 	// Use this for initialization
 	void Start () {
         canPickup = false;
@@ -57,13 +58,25 @@ public class WeaponBehavior : MonoBehaviour {
             isAttacking = true;
             GetComponent<Animation>().Play();
         }
-        
+
+        if (Input.GetMouseButtonDown(1) && isAttached && !isAttacking && coolDown >= 5 )
+        {
+            isPushing = true;
+            GetComponent<Animation>().Play();
+            coolDown = 0;
+        }
+        if (coolDown <= 5)
+        {
+            coolDown += Time.deltaTime;
+            cdSlider.value = coolDown;
+        }
     }
 
     public void AttackDone()
     {
         isAttacking = false;
         enemyHit = false;
+        isPushing = false;
     }
 
     // actions for picking up sword or dropping sword
