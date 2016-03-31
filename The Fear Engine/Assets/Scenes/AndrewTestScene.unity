@@ -273,6 +273,88 @@ MonoBehaviour:
 GameObject:
   m_PrefabParentObject: {fileID: 169038, guid: 242cd02fbc0f166458ecacf985dba5fc, type: 2}
   m_PrefabInternal: {fileID: 558587118}
+--- !u!1001 &528046064
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1260404018}
+    m_Modifications:
+    - target: {fileID: 11465040, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: zoneText.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11465040, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: textTimes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 429146, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.4162603
+      objectReference: {fileID: 0}
+    - target: {fileID: 429146, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 429146, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.45000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 429146, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429146, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429146, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429146, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 429146, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11465040, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: zoneText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 429146, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.033333335
+      objectReference: {fileID: 0}
+    - target: {fileID: 429146, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 429146, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.033333335
+      objectReference: {fileID: 0}
+    - target: {fileID: 11465040, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: zoneText.Array.data[0]
+      value: Hello
+      objectReference: {fileID: 0}
+    - target: {fileID: 11465040, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: zoneText.Array.data[1]
+      value: HI!!!!
+      objectReference: {fileID: 0}
+    - target: {fileID: 11465040, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: textTimes.Array.data[0]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11465040, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: textTimes.Array.data[1]
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &558587118
 Prefab:
   m_ObjectHideFlags: 0
@@ -326,6 +408,14 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1260404018}
     m_Modifications:
+    - target: {fileID: 11465040, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: zoneText.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11465040, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: textTimes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 429146, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
       propertyPath: m_LocalPosition.x
       value: -0.38100004
@@ -356,7 +446,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 429146, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 429146, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
       propertyPath: m_LocalScale.x
@@ -369,6 +459,30 @@ Prefab:
     - target: {fileID: 429146, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
       propertyPath: m_LocalScale.z
       value: 0.033333335
+      objectReference: {fileID: 0}
+    - target: {fileID: 11465040, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: zoneText.Array.data[0]
+      value: Meet your maker
+      objectReference: {fileID: 0}
+    - target: {fileID: 11465040, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: textTimes.Array.data[0]
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11465040, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: zoneText.Array.data[1]
+      value: Meet your maker
+      objectReference: {fileID: 0}
+    - target: {fileID: 11465040, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: zoneText.Array.data[2]
+      value: Meet your maker
+      objectReference: {fileID: 0}
+    - target: {fileID: 11465040, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: zoneText.Array.data[3]
+      value: Meet your maker
+      objectReference: {fileID: 0}
+    - target: {fileID: 11465040, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: zoneText.Array.data[4]
+      value: Meet your maker
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}

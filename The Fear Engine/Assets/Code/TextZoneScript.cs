@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class TextZoneScript : MonoBehaviour {
-    public string zoneText = "Test";
+	public string[] zoneText;
+	public int[] textTimes;
 
     bool seen;      // whether the player has already seen the text at this point
 
@@ -19,7 +20,7 @@ public class TextZoneScript : MonoBehaviour {
         if (other.tag == "Player" && !seen)
         {
             print("Player Entered Zone");
-            managerScript.DisplayText(zoneText);
+            managerScript.DisplayText(zoneText, textTimes);
             seen = true;
         }
         

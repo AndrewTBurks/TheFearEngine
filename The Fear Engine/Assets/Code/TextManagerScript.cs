@@ -12,17 +12,20 @@ public class TextManagerScript : MonoBehaviour {
     }
 	
 
-    public void DisplayText(string message)
+	public void DisplayText(string[] messages, int[] times)
     {
-        dialogueText.text = message;
         textBG.color = new Color(textBG.color.r, textBG.color.g, textBG.color.b, 0.2f);
-        StartCoroutine(TextWait(10));
+		StartCoroutine(TextWait(messages, times));
         
     }
 
-    IEnumerator TextWait(int time)
+	IEnumerator TextWait(string[] messages, int[] times)
     {
-        yield return new WaitForSeconds(time);
+		for(int i = 0; i < messages.Length; i++){
+			dialogueText.text = messages [i];
+			yield return new WaitForSeconds(times[i]);
+		}
+
         dialogueText.text = null;
         textBG.color = new Color(textBG.color.r, textBG.color.g, textBG.color.b, 0);
     }
