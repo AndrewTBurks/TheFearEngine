@@ -136,6 +136,7 @@ public class SanityManagerScript : MonoBehaviour {
             sanityUpdated = false;
         }
 
+       
         // to decrease sanity depending on how close the proximity enemies are
         AddSanity(CalculateSanityDecreaseByEnemy());
 	}
