@@ -147,15 +147,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -596.14185
+      value: -126.49
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -205.27122
+      value: 65.98
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -107.85812
+      value: -115.02
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalRotation.x
@@ -830,7 +830,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkPoint: {x: 0, y: 0, z: 0}
   player: {fileID: 495132188}
-  playerhealth: {fileID: 0}
+  playerhealth: {fileID: 978083067}
   firstTP: {fileID: 1957168185}
   secondTP: {fileID: 393033096}
   thirdTP: {fileID: 0}
@@ -1658,14 +1658,14 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 978083065}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 470.01184, y: 270.16122, z: -6.8118706}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1343889495}
   - {fileID: 1821147398}
   - {fileID: 495132187}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 37
 --- !u!114 &978083067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1680,7 +1680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myImage: {fileID: 852972947}
   sanityBar: {fileID: 2031658566}
-  myPlayer: {fileID: 0}
+  myPlayer: {fileID: 495132186}
 --- !u!1001 &1019910578
 Prefab:
   m_ObjectHideFlags: 0
@@ -2752,7 +2752,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 45
+  m_RootOrder: 42
 --- !u!1001 &1746220517
 Prefab:
   m_ObjectHideFlags: 0
@@ -3343,7 +3343,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1961351060}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -98529514, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
@@ -3804,7 +3804,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Dialogue Text
+  m_Text: 
 --- !u!222 &2048882704
 CanvasRenderer:
   m_ObjectHideFlags: 0
