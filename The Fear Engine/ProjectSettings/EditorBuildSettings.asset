@@ -12,6 +12,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/hmwk8-2.unity
   - enabled: 1
-    path: Assets/Scenes/LossScene.unity
+    path: Assets/Scenes/IntroToJump.unity
+  - enabled: 1
+    path: Assets/Scenes/JumpLevel.unity
   - enabled: 1
     path: Assets/Scenes/EndLevel.unity
+  - enabled: 1
+    path: Assets/Scenes/LossScene.unity
+  - enabled: 0
+    path: Assets/Scenes/BossTPWarning.unity

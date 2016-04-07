@@ -8,6 +8,12 @@ TagManager:
   - ProximityEnemy
   - Wall
   - PickUp
+  - FLOOR
+  - LongJump
+  - Tp
+  - BossTP
+  - BossTP2
+  - BossTP3
   layers:
   - Default
   - TransparentFX

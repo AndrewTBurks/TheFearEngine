@@ -11,7 +11,7 @@ public class EndLevelCheck : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+	    
 	}
 
     void OnTriggerEnter (Collider other)
