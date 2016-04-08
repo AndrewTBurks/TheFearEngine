@@ -22,7 +22,8 @@ public class TextManagerScript : MonoBehaviour {
 	IEnumerator TextWait(string[] messages, int[] times)
     {
 		for(int i = 0; i < messages.Length; i++){
-			dialogueText.text = messages [i];
+            textBG.color = new Color(textBG.color.r, textBG.color.g, textBG.color.b, 0.2f);
+            dialogueText.text = messages [i];
 			yield return new WaitForSeconds(times[i]);
 		}
 

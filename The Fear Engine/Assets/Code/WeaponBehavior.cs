@@ -95,6 +95,7 @@ public class WeaponBehavior : MonoBehaviour {
     void DetachWeapon()
     {
         transform.position = new Vector3(transform.parent.position.x, 1, transform.parent.position.z);
+        transform.rotation = Quaternion.Euler(0, 0, 0);
         transform.parent = null;
 
         canPickup = true;

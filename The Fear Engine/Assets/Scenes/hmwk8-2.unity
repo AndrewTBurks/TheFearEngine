@@ -1280,6 +1280,10 @@ Prefab:
       propertyPath: sword
       value: 
       objectReference: {fileID: 885539925}
+    - target: {fileID: 11426338, guid: 1c122a7306bbb9d458a38c72199bb50f, type: 2}
+      propertyPath: gateGuardian
+      value: 
+      objectReference: {fileID: 538475528}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1c122a7306bbb9d458a38c72199bb50f, type: 2}
   m_IsPrefabParent: 0
@@ -2049,6 +2053,10 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 474268, guid: 6108f41dda8495f459b06a0342bea31d, type: 2}
   m_PrefabInternal: {fileID: 1255410943}
+--- !u!1 &538475528 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 180698, guid: 46a74c456f9099f4b930a3f79e757e66, type: 2}
+  m_PrefabInternal: {fileID: 1139783415}
 --- !u!1001 &542015116
 Prefab:
   m_ObjectHideFlags: 0

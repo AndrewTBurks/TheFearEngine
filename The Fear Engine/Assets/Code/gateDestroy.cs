@@ -6,6 +6,9 @@ public class gateDestroy : MonoBehaviour {
     public Transform targetPlayer;
     public GameObject thisGate;
     public WeaponBehavior sword;
+
+    public GameObject gateGuardian;
+
     private bool canOpen = false;
 
     // Use this for initialization
@@ -20,7 +23,7 @@ public class gateDestroy : MonoBehaviour {
         if ((seperation <= 4))
         {
             canOpen = true;
-            if (Input.GetMouseButtonDown(0) && sword.obtained)
+            if (Input.GetMouseButtonDown(0) && sword.obtained && gateGuardian == null)
             {
                 Destroy(thisGate);
             }
@@ -34,9 +37,13 @@ public class gateDestroy : MonoBehaviour {
 
     void OnGUI()
     {
-        if (canOpen)
+        if (canOpen && gateGuardian != null)
         {
-            GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 300, 300), "Swing sword to Destroy gate");
+            GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 300, 300), "Defeat the guardian before Destroying the Gate");
+        }
+        else if (canOpen)
+        {
+            GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 300, 300), "Swing sword to Destroy Gate");
 
         }
     }
