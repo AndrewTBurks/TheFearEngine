@@ -58,6 +58,8 @@ public class FighterAI : MonoBehaviour
     private float vBonusAct2 = 10;
     private float vBonusAct3 = 2;
 
+    private bool isIdle;
+    private GameObject player;
 
     // Use this for initialization
     void Awake()
@@ -78,17 +80,22 @@ public class FighterAI : MonoBehaviour
         // turn off autoShoot in basic enemyAI1 script
         GetComponent<enemyAI1>().autoShoot = false;
 
+        player = GameObject.FindGameObjectWithTag("Player");
+        isIdle = false;
+
         // pick a move from the start, after wait times, subsequent moves picked
-        pickMoveAndPerform();
+        PickMoveAndPerform();
     }
 
     // Update is called once per frame
-    /*
     void Update()
     {
-        // unused
+        if (isIdle && Vector3.Distance(player.transform.position, this.transform.position) < 30)
+        {
+            isIdle = false;
+            PickMoveAndPerform();
+        }
     }
-    */
 
     /* Initialize the probability table to a bounded range for each action */
     private void InitProbTable()
@@ -123,7 +130,7 @@ public class FighterAI : MonoBehaviour
         }
     }
 
-    private void pickMoveAndPerform()
+    private void PickMoveAndPerform()
     {
         float p1 = probTable[prevMov2, prevMov1, 1];
         float p2 = probTable[prevMov2, prevMov1, 2];
@@ -131,7 +138,11 @@ public class FighterAI : MonoBehaviour
 
         float randGen = Random.Range(0.0f, 1.0f);
 
-        if (randGen <= p1)
+        if (Vector3.Distance(player.transform.position, this.transform.position) >= 30)
+        {
+            isIdle = true;
+        }
+        else if (randGen <= p1)
         {
             StartCoroutine(Attack(p1));
         }
@@ -169,7 +180,7 @@ public class FighterAI : MonoBehaviour
         
         yield return new WaitForSeconds(1);
 
-        pickMoveAndPerform(); // Choose next move after return
+        PickMoveAndPerform(); // Choose next move after return
     }
 
     /* ====================================================================== */
@@ -202,7 +213,7 @@ public class FighterAI : MonoBehaviour
         }
 
         myRegenEffect.SetActive(false);
-        pickMoveAndPerform(); // Choose next move after return
+        PickMoveAndPerform(); // Choose next move after return
     }
 
     /* ========================================================= */
@@ -238,7 +249,7 @@ public class FighterAI : MonoBehaviour
             }
 
             yield return new WaitForSeconds(5);
-            pickMoveAndPerform(); // Choose next move after return
+            PickMoveAndPerform(); // Choose next move after return
         }
     }
 

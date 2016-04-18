@@ -15,28 +15,40 @@ public class FallPlaneRespawn : MonoBehaviour {
     public Transform fallPlane;
     public Transform playerChar;
     public SanityManagerScript manager;
-    public Transform spawnlocation;
+
+    public int furthestCheckpointReached;
+    public GameObject startCheckpoint;
+    private GameObject lastCheckpoint;
+
     private float san;
     
-
 	// Use this for initialization
-	void Start () {
-
-      
+	void Awake () {
+        furthestCheckpointReached = 0; // start of the level
+        startCheckpoint.GetComponent<CheckpointScript>().SetReached();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
      
-           if ((playerChar.position.y <= fallPlane.position.y))
+        if ((playerChar.position.y <= fallPlane.position.y))
         {
-            playerChar.position = spawnlocation.position;
-            playerChar.rotation = spawnlocation.rotation;
+            // respawn at furthest checkpoint
+            playerChar.position = lastCheckpoint.transform.position;
+            playerChar.rotation = lastCheckpoint.transform.rotation;
             san = manager.GetSanity();
             san = san / 2;
             manager.AddSanity(-san);
 
         }
 	}
+
+    public void UpdateFurthest(int number, GameObject checkpoint)
+    {
+        if(number > furthestCheckpointReached)
+        {
+            furthestCheckpointReached = number;
+        }
+    }
 }
