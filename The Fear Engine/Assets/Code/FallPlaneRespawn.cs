@@ -26,6 +26,7 @@ public class FallPlaneRespawn : MonoBehaviour {
 	void Awake () {
         furthestCheckpointReached = 0; // start of the level
         startCheckpoint.GetComponent<CheckpointScript>().SetReached();
+        lastCheckpoint = startCheckpoint;
 	}
 	
 	// Update is called once per frame
@@ -49,6 +50,7 @@ public class FallPlaneRespawn : MonoBehaviour {
         if(number > furthestCheckpointReached)
         {
             furthestCheckpointReached = number;
+            lastCheckpoint = checkpoint;
         }
     }
 }
