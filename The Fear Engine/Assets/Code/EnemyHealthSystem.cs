@@ -6,15 +6,20 @@ public class EnemyHealthSystem : MonoBehaviour {
     private Vector3 slamDistance;
     private GameObject myHealthBar;
     private HealthBarUpdater hbu;
+
     private float myHealth;
+    public float maxHealth = 100;
+
     private float atkDamage = -10; //change number here for more damage.
     private Rigidbody rb;
     // Use this for initialization
     void Start ()
     {
-        myHealth = 100;
+        myHealth = maxHealth;
         myHealthBar = Instantiate(healthBar);
         hbu = myHealthBar.GetComponent<HealthBarUpdater>();
+        hbu.ChangeMaxHealth(maxHealth);
+
         myHealthBar.transform.position = gameObject.transform.position + (Vector3.up * 2f);
         myHealthBar.transform.parent = gameObject.transform;
         rb = GetComponent<Rigidbody>();
@@ -32,14 +37,19 @@ public class EnemyHealthSystem : MonoBehaviour {
         }
 	}
 
+    public float GetHealth()
+    {
+        return myHealth;
+    }
+
     /* Add Positive of Negative amount of health to this Enemy */
     public void AddHealth(float deltaHealth)
     {
         // increment local health val and scale the bar
         myHealth = myHealth + deltaHealth;
-        if (myHealth > 100)
+        if (myHealth > maxHealth)
         {
-            myHealth = 100;
+            myHealth = maxHealth;
         }
         else if (myHealth < 0)
         {

@@ -14,6 +14,10 @@ public class HealSanity : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        // slow spin effect
+        transform.rotation = transform.rotation * Quaternion.Euler(0, 0, 60 * Time.deltaTime);
+
         float seperation = Vector3.Distance(this.transform.position, targetPlayer.transform.position);
 
         if ((seperation <= 2))

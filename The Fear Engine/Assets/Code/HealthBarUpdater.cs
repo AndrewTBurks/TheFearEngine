@@ -5,13 +5,17 @@ public class HealthBarUpdater : MonoBehaviour
 {
     private GameObject healthAnchor;
 
-    private float health = 100; // 0 to 100
+    private float health; // 0 to maxHealth
+    private float maxHealth = 100;
+
     private bool changed;
 
     // Use this for initialization
     void Start()
     {
         healthAnchor = transform.FindChild("HealthAnchor").gameObject;
+        health = maxHealth;
+
         changed = true;
     }
     
@@ -19,7 +23,7 @@ public class HealthBarUpdater : MonoBehaviour
     {
         if(changed)
         {
-            healthAnchor.transform.localScale = new Vector3((health / 100f), 1, 1);
+            healthAnchor.transform.localScale = new Vector3((health / maxHealth), 1, 1);
             changed = false;
         }
 
@@ -28,14 +32,21 @@ public class HealthBarUpdater : MonoBehaviour
     public void SetHealth(float newHealth)
     {
         health = newHealth;
-        if(health > 100)
+        if(health > maxHealth)
         {
-            health = 100;
+            health = maxHealth;
         }
         else if (health < 0)
         {
             health = 0;
         }
+        changed = true;
+    }
+
+    public void ChangeMaxHealth(float newMax)
+    {
+        maxHealth = newMax;
+        health = maxHealth;
         changed = true;
     }
 }
