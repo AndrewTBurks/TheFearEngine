@@ -50,12 +50,12 @@ public class FighterAI : MonoBehaviour
 
     // Min values for actions to scale by probability
     private float vMinAct1 = 5;
-    private float vMinAct2 = 20;
+    private float vMinAct2 = 15;
     private float vMinAct3 = 2;
 
     // Max bonus amount for low probability of the action
     private float vBonusAct1 = 5;
-    private float vBonusAct2 = 10;
+    private float vBonusAct2 = 7;
     private float vBonusAct3 = 2;
 
     private bool isIdle;

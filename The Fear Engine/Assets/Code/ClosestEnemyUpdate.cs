@@ -13,52 +13,73 @@ public class ClosestEnemyUpdate : MonoBehaviour {
     private float currDistance = float.MaxValue;
     private EnemyHealthSystem currEhs = null;
 
-	// Use this for initialization
-	void Awake () {
-
-        UpdateCurrentEnemy();
-	}
+    private bool updateStarted = false;
 	
 	// Update is called once per frame
 	void Update () {
-        UpdateCurrentEnemy();
-
-        if (currEnemy != null)
+        if (!updateStarted)
         {
-            enemyName.text = string.Format("{}: ", currEnemy.name);
+            updateStarted = true;
+            UpdateCurrentEnemy();
+        }
+
+        if (currDistance > 20.0f)
+        {
+            enemyDisplay.SetActive(false);
+        }
+        else
+        {
+            enemyDisplay.SetActive(true);
+
+            // works
+            print(currEnemy.name + " - closest Enemy: " + currDistance + " Health: " + currEhs.GetHealth() + "/" + currEhs.maxHealth);
+
+            // refresh UI pieces
+            enemyName.text = currEnemy.name + ": (" + ((int)currEhs.GetHealth()) + "/" + currEhs.maxHealth + ") ";
             healthBarObj.transform.localScale = new Vector3((currEhs.GetHealth() / currEhs.maxHealth), 1, 1);
         }
+
+
     }
 
-    void UpdateCurrentEnemy()
+    private void UpdateCurrentEnemy()
     {
-        print("Updating Nearby Enemy");
+        //print("Updating Nearby Enemy");
+        
         GameObject closestEnemy = null;
         float enemyDistance = float.MaxValue;
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("ProximityEnemy");
-
+        var enemies = GameObject.FindGameObjectsWithTag("ProximityEnemy");
+        // print(enemies.Length);
+        
         foreach(var e in enemies)
         {
-            if (e.GetComponent<EnemyHealthSystem>() != null) // has health system
+            if (e.GetComponent<EnemyHealthSystem>() != null)
             {
                 float thisDistance = Vector3.Distance(player.transform.position, e.transform.position);
-                print(string.Format("{} at distance {}", e.name, thisDistance));
-                if(thisDistance < enemyDistance)
+
+                if (thisDistance < enemyDistance)
                 {
                     closestEnemy = e;
                     enemyDistance = thisDistance;
                 }
             }
+            
         }
 
-        if(enemyDistance <= currDistance)
+
+        currEnemy = closestEnemy;
+        currDistance = enemyDistance;
+
+        if (closestEnemy != null)
         {
-            currEnemy = closestEnemy;
-            currDistance = enemyDistance;
             currEhs = closestEnemy.GetComponent<EnemyHealthSystem>();
         }
+        else
+        {
+            currEhs = null;
+        }  
 
-        // StartCoroutine(WaitForUpdate(0.5f));
+        StartCoroutine(WaitForUpdate(1f));
         
     }
 
