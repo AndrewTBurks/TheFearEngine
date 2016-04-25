@@ -1760,70 +1760,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 483552, guid: 07dbf755e30fe0844b22e0f5b6c59fa9, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 109.77
-      objectReference: {fileID: 0}
-    - target: {fileID: 483552, guid: 07dbf755e30fe0844b22e0f5b6c59fa9, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 280.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 483552, guid: 07dbf755e30fe0844b22e0f5b6c59fa9, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 25.94
-      objectReference: {fileID: 0}
-    - target: {fileID: 483552, guid: 07dbf755e30fe0844b22e0f5b6c59fa9, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 483552, guid: 07dbf755e30fe0844b22e0f5b6c59fa9, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 483552, guid: 07dbf755e30fe0844b22e0f5b6c59fa9, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 483552, guid: 07dbf755e30fe0844b22e0f5b6c59fa9, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: -0.00000016292068
-      objectReference: {fileID: 0}
-    - target: {fileID: 8246244, guid: 07dbf755e30fe0844b22e0f5b6c59fa9, type: 2}
-      propertyPath: Priority
-      value: 184
-      objectReference: {fileID: 0}
-    - target: {fileID: 8246244, guid: 07dbf755e30fe0844b22e0f5b6c59fa9, type: 2}
-      propertyPath: m_Volume
-      value: 0.27
-      objectReference: {fileID: 0}
-    - target: {fileID: 11454920, guid: 07dbf755e30fe0844b22e0f5b6c59fa9, type: 2}
-      propertyPath: m_Text
-      value: 'Test:'
-      objectReference: {fileID: 0}
-    - target: {fileID: 11488944, guid: 07dbf755e30fe0844b22e0f5b6c59fa9, type: 2}
-      propertyPath: myPlayer
-      value: 
-      objectReference: {fileID: 1524779366}
-    - target: {fileID: 22428422, guid: 07dbf755e30fe0844b22e0f5b6c59fa9, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22441814, guid: 07dbf755e30fe0844b22e0f5b6c59fa9, type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 22441814, guid: 07dbf755e30fe0844b22e0f5b6c59fa9, type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 22441814, guid: 07dbf755e30fe0844b22e0f5b6c59fa9, type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -278.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 11454920, guid: 07dbf755e30fe0844b22e0f5b6c59fa9, type: 2}
-      propertyPath: m_FontData.m_HorizontalOverflow
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07dbf755e30fe0844b22e0f5b6c59fa9, type: 2}
   m_IsPrefabParent: 0
@@ -5071,7 +5007,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 117920, guid: a306e73eaed9a764e985149b6810bb87, type: 2}
-  myName: Enemy
   maxHealth: 75
 --- !u!23 &1029965460
 MeshRenderer:
@@ -7088,7 +7023,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 439756, guid: 82641722e0272ff48842eac26d0b0092, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 11435246, guid: 82641722e0272ff48842eac26d0b0092, type: 2}
       propertyPath: textBG
@@ -7401,10 +7336,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3ff06ee37ddfdd4cab22adbb6ad7f23, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1524779366 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 194418, guid: 07dbf755e30fe0844b22e0f5b6c59fa9, type: 2}
-  m_PrefabInternal: {fileID: 362683481}
 --- !u!1 &1527805140
 GameObject:
   m_ObjectHideFlags: 0
