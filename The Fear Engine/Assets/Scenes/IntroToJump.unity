@@ -519,7 +519,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -530,14 +530,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'My brain scan indicates you are afraid of heights.
-
-    Let see what you can do here. Climb to the top and fight, or fall and die the
-    choice is yours.
-
-    (Press 1 to create a checkpoint, but you only have 10.)
-
-    (Press 2 to teleport back to that checkpoint.)'
+  m_Text: "My fears are coming to life in three dimensions. The very ground I walk
+    on is unstable. I feel\r myself doubting each step I take. This fear of falling
+    is destroying my sanity. This place is all wrong.\r There\u2019s no logic, no
+    rational set of laws that govern gravity. But I also feel strong ammounts of energy
+    forming in my body. I may be able to begin to take control of this world and conquer
+    my fears.\n\n(Press and hold \"1\" for 1 second to build up the energy inside
+    and create a checkpoint)\n(Press and hold \"2\" for 1 second to release that energy
+    and teleport back to your checkpoint)\n\nPress Space to continue\n"
 --- !u!222 &1783288632
 CanvasRenderer:
   m_ObjectHideFlags: 0
