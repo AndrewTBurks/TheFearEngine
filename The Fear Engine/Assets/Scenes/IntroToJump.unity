@@ -533,11 +533,7 @@ MonoBehaviour:
   m_Text: "My fears are coming to life in three dimensions. The very ground I walk
     on is unstable. I feel\r myself doubting each step I take. This fear of falling
     is destroying my sanity. This place is all wrong.\r There\u2019s no logic, no
-    rational set of laws that govern gravity. But I also feel strong ammounts of energy
-    forming in my body. I may be able to begin to take control of this world and conquer
-    my fears.\n\n(Press and hold \"1\" for 1 second to build up the energy inside
-    and create a checkpoint)\n(Press and hold \"2\" for 1 second to release that energy
-    and teleport back to your checkpoint)\n\nPress Space to continue\n"
+    rational set of laws that govern gravity. \nPress Space to continue\n"
 --- !u!222 &1783288632
 CanvasRenderer:
   m_ObjectHideFlags: 0
