@@ -1151,7 +1151,7 @@ AudioSource:
   Loop: 1
   Mute: 0
   Spatialize: 0
-  Priority: 89
+  Priority: 29
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1180,7 +1180,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: 0.423
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1755,6 +1755,14 @@ Prefab:
     - target: {fileID: 482136, guid: 07dbf755e30fe0844b22e0f5b6c59fa9, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246244, guid: 07dbf755e30fe0844b22e0f5b6c59fa9, type: 2}
+      propertyPath: Priority
+      value: 205
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246244, guid: 07dbf755e30fe0844b22e0f5b6c59fa9, type: 2}
+      propertyPath: m_Volume
+      value: 0.117
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07dbf755e30fe0844b22e0f5b6c59fa9, type: 2}
@@ -5737,6 +5745,38 @@ Prefab:
     - target: {fileID: 180698, guid: 46a74c456f9099f4b930a3f79e757e66, type: 2}
       propertyPath: m_Name
       value: Queen Spider
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576466, guid: 46a74c456f9099f4b930a3f79e757e66, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6518524, guid: 46a74c456f9099f4b930a3f79e757e66, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576466, guid: 46a74c456f9099f4b930a3f79e757e66, type: 2}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576466, guid: 46a74c456f9099f4b930a3f79e757e66, type: 2}
+      propertyPath: m_Center.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576466, guid: 46a74c456f9099f4b930a3f79e757e66, type: 2}
+      propertyPath: m_Center.z
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576466, guid: 46a74c456f9099f4b930a3f79e757e66, type: 2}
+      propertyPath: m_Size.z
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576466, guid: 46a74c456f9099f4b930a3f79e757e66, type: 2}
+      propertyPath: m_Size.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6576466, guid: 46a74c456f9099f4b930a3f79e757e66, type: 2}
+      propertyPath: m_Size.x
+      value: 1.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 46a74c456f9099f4b930a3f79e757e66, type: 2}
