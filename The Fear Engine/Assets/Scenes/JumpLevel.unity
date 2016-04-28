@@ -41,7 +41,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -10756,7 +10756,7 @@ Transform:
   - {fileID: 1118790068}
   - {fileID: 2117547921}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 11
 --- !u!1 &917927157
 GameObject:
   m_ObjectHideFlags: 0
@@ -15082,7 +15082,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11417216, guid: 68c1094b2c25e8e499f8b23b7f6a89cb, type: 2}
       propertyPath: checkpointNumber
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 414732, guid: 68c1094b2c25e8e499f8b23b7f6a89cb, type: 2}
       propertyPath: m_LocalPosition.x
@@ -17642,6 +17642,10 @@ Prefab:
     - target: {fileID: 400736, guid: 68c1094b2c25e8e499f8b23b7f6a89cb, type: 2}
       propertyPath: m_LocalScale.z
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11417216, guid: 68c1094b2c25e8e499f8b23b7f6a89cb, type: 2}
+      propertyPath: checkpointNumber
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68c1094b2c25e8e499f8b23b7f6a89cb, type: 2}
