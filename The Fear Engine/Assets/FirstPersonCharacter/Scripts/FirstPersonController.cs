@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
+using System.Collections;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
@@ -65,6 +66,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool webbed;
         public bool hasSword;
         public GameObject sword;
+        public SanityManagerScript player;
         // Use this for initialization
         private void Start()
         {
@@ -120,14 +122,18 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             if (hasSword)
             {
-                GameObject newobj = (GameObject)Instantiate(sword, this.transform.position + Vector3.right*-.5f, Quaternion.Euler(45,90,45) );
+                GameObject newobj = (GameObject)Instantiate(sword, this.transform.position + Vector3.right * -.5f, Quaternion.Euler(45, 90, 45));
                 newobj.transform.parent = this.transform;
-                
+
                 hasSword = false;
             }
-            
+
+
+
+
 
         }
+        
 
 
 
@@ -311,11 +317,26 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 timer = 0;
             }
 
-            
-            
+            if (other.tag == "FireBall")
+            {
+                print("Hit");
+                StartCoroutine(DamagerOverTimeCoroutine(10.0f, 5.0f));                
+            }
         }
 
+        IEnumerator DamagerOverTimeCoroutine(float damage, float duration)
+        {
+            float amountDamaged = 0;
+            float damagePerLoop = damage / duration;
+            while (amountDamaged < damage)
+            {
+                player.AddSanity(-damagePerLoop);
+                Debug.Log(player.GetSanity());
+                amountDamaged += damagePerLoop;
+                yield return new WaitForSeconds(1f);
+            }
+        }
 
     }
-
+    
 }

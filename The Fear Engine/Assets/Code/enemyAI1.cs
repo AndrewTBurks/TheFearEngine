@@ -21,6 +21,7 @@ public class enemyAI1 : MonoBehaviour {
     private float waitingTime = 5;
     private float timer;
     private bool seePlayer;
+    public float closeAggroRange = 3;
     public bool autoShoot; // to turn off auto shooting behavior in Update() when Shoot() is used in FighterAI
     
     void Awake()
@@ -54,7 +55,7 @@ public class enemyAI1 : MonoBehaviour {
         lookDir.y = 0;
         // zero the height difference
         myEnemy.rotation = Quaternion.Slerp(myEnemy.rotation, Quaternion.LookRotation(lookDir), rotationSpeed * Time.deltaTime);
-        if (seperation <= aggroRange) //distance the player must be to make the spider move towards him.
+        if (seperation <= aggroRange && seperation >= closeAggroRange) //distance the player must be to make the spider move towards him.
         {
             myEnemy.position += myEnemy.forward * moveSpeed * Time.deltaTime;
 

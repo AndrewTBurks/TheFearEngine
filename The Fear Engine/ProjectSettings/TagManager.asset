@@ -14,6 +14,7 @@ TagManager:
   - BossTP
   - BossTP2
   - BossTP3
+  - FireBall
   layers:
   - Default
   - TransparentFX
