@@ -597,7 +597,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 30
 --- !u!1 &50579312
 GameObject:
   m_ObjectHideFlags: 0
@@ -4944,7 +4944,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11465040, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
       propertyPath: zoneText.Array.data[0]
-      value: Careful these platforms may not follow the laws of physics.
+      value: I must have to run to jump to these platforms.
       objectReference: {fileID: 0}
     - target: {fileID: 11465040, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
       propertyPath: textTimes.Array.data[0]
@@ -9210,7 +9210,7 @@ Transform:
   - {fileID: 746839560}
   - {fileID: 60881991}
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 33
 --- !u!4 &791144310 stripped
 Transform:
   m_PrefabParentObject: {fileID: 439756, guid: 82641722e0272ff48842eac26d0b0092, type: 2}
