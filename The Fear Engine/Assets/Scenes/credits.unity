@@ -1225,7 +1225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 647276252}
   speed: 3
-  level: opening
+  level: mainMenu
 --- !u!4 &1966834533
 Transform:
   m_ObjectHideFlags: 0
