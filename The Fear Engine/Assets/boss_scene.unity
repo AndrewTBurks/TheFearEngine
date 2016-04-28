@@ -131,6 +131,26 @@ Prefab:
     - target: {fileID: 11415430, guid: 143c156f3ae177c46bcc410605800f49, type: 2}
       propertyPath: targetPlayer
       value: 
+      objectReference: {fileID: 901711868}
+    - target: {fileID: 11436794, guid: 143c156f3ae177c46bcc410605800f49, type: 2}
+      propertyPath: clonePrefab
+      value: 
+      objectReference: {fileID: 1100007551}
+    - target: {fileID: 11436794, guid: 143c156f3ae177c46bcc410605800f49, type: 2}
+      propertyPath: regenEffect
+      value: 
+      objectReference: {fileID: 172926, guid: f874709de958bba48a55a43609cbb10b, type: 2}
+    - target: {fileID: 11436794, guid: 143c156f3ae177c46bcc410605800f49, type: 2}
+      propertyPath: spawnMobs
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11415430, guid: 143c156f3ae177c46bcc410605800f49, type: 2}
+      propertyPath: myEnemy
+      value: 
+      objectReference: {fileID: 607322366}
+    - target: {fileID: 176592, guid: 143c156f3ae177c46bcc410605800f49, type: 2}
+      propertyPath: m_TagString
+      value: ProximityEnemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 143c156f3ae177c46bcc410605800f49, type: 2}
@@ -185,6 +205,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 55828e12ece94944b965ae3c39d92c25, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &607322366 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 482864, guid: 143c156f3ae177c46bcc410605800f49, type: 2}
+  m_PrefabInternal: {fileID: 313536225}
 --- !u!1001 &743510193
 Prefab:
   m_ObjectHideFlags: 0
@@ -233,6 +257,81 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1598207039}
   m_Script: {fileID: 11500000, guid: 74b6bdbbb15af084aa58f9eb513ef505, type: 3}
+--- !u!4 &901711868 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 483552, guid: 07dbf755e30fe0844b22e0f5b6c59fa9, type: 2}
+  m_PrefabInternal: {fileID: 1598207039}
+--- !u!1 &1100007551 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 165990, guid: aee016f20f156d04392630637ebbbc27, type: 2}
+  m_PrefabInternal: {fileID: 1119621764}
+--- !u!114 &1100007552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1100007551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc420d60dbeac2444b137564b67565f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  web: {fileID: 0}
+  targetPlayer: {fileID: 901711868}
+  myEnemy: {fileID: 1100007554}
+  bulletImpulse: 20
+  terrain: {fileID: 0}
+  sValue: 0
+  moveSpeed: 3
+  aggroRange: 30
+  closeAggroRange: 3
+  autoShoot: 0
+--- !u!4 &1100007554 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 493610, guid: aee016f20f156d04392630637ebbbc27, type: 2}
+  m_PrefabInternal: {fileID: 1119621764}
+--- !u!1001 &1119621764
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 493610, guid: aee016f20f156d04392630637ebbbc27, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -5.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 493610, guid: aee016f20f156d04392630637ebbbc27, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 493610, guid: aee016f20f156d04392630637ebbbc27, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 493610, guid: aee016f20f156d04392630637ebbbc27, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 493610, guid: aee016f20f156d04392630637ebbbc27, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 493610, guid: aee016f20f156d04392630637ebbbc27, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 493610, guid: aee016f20f156d04392630637ebbbc27, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 493610, guid: aee016f20f156d04392630637ebbbc27, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: aee016f20f156d04392630637ebbbc27, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1261736167
 GameObject:
   m_ObjectHideFlags: 0
