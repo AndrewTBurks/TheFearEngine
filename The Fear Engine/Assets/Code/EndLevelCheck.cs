@@ -18,7 +18,7 @@ public class EndLevelCheck : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            SceneManager.LoadScene("EndLevel");
+            SceneManager.LoadScene("FireLevel");
         }
     }
 }
