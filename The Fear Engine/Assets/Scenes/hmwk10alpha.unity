@@ -536,6 +536,38 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11460540, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: textTimes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11437544, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: isTutorial.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11425032, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: isTutorial.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11470304, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: isTutorial.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11486308, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: isTutorial.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460540, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: isTutorial.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492924, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: isTutorial.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11465894, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: isTutorial.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 418534, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
       propertyPath: m_LocalPosition.x
       value: 300.02383
@@ -603,6 +635,78 @@ Prefab:
     - target: {fileID: 418802, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
       propertyPath: m_LocalPosition.y
       value: -136.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11437544, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: isTutorial.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11425032, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: isTutorial.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11470304, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: isTutorial.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11486308, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: isTutorial.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460540, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: isTutorial.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492924, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: isTutorial.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11465894, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: isTutorial.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492924, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: isTutorial.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492924, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: isTutorial.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460540, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: textTimes.Array.data[1]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460540, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: isTutorial.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11437544, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: isTutorial
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11425032, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: isTutorial
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11470304, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: isTutorial
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11486308, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: isTutorial
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460540, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: isTutorial
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492924, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: isTutorial
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11465894, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: isTutorial
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
@@ -2457,6 +2561,10 @@ Prefab:
       propertyPath: textTimes.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11465040, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: isTutorial.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 429146, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
       propertyPath: m_LocalPosition.x
       value: 3.6313336
@@ -2516,6 +2624,18 @@ Prefab:
     - target: {fileID: 11465040, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
       propertyPath: textTimes.Array.data[1]
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11465040, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: isTutorial.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11465040, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: isTutorial.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11465040, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}
+      propertyPath: isTutorial
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b83cf1cb75d0aba4bacfc2f3b42c91e0, type: 2}

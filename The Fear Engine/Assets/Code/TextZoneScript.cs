@@ -4,6 +4,7 @@ using System.Collections;
 public class TextZoneScript : MonoBehaviour {
 	public string[] zoneText;
 	public int[] textTimes;
+    public bool isTutorial = false; // will change the color of the text slightly 
 
     bool seen;      // whether the player has already seen the text at this point
 
@@ -20,7 +21,7 @@ public class TextZoneScript : MonoBehaviour {
         if (other.tag == "Player" && !seen)
         {
             print("Player Entered Zone");
-            managerScript.DisplayText(zoneText, textTimes);
+            managerScript.DisplayText(zoneText, textTimes, isTutorial);
             seen = true;
         }
         
