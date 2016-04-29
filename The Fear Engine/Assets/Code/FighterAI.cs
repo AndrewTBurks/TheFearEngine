@@ -31,6 +31,8 @@ public class FighterAI : MonoBehaviour
     public GameObject clonePrefab; // prefab for clones of this monster
     public bool spawnMobs = false;
 
+    public float difficulty = 1.0f; // default difficulty is 1
+
     private float[,,] probTable;
 
     private int prevMov1; // last move
@@ -49,14 +51,14 @@ public class FighterAI : MonoBehaviour
 
 
     // Min values for actions to scale by probability
-    private float vMinAct1 = 5;
-    private float vMinAct2 = 15;
-    private float vMinAct3 = 2;
+    private float vMinAct1;
+    private float vMinAct2;
+    private float vMinAct3;
 
     // Max bonus amount for low probability of the action
-    private float vBonusAct1 = 5;
-    private float vBonusAct2 = 7;
-    private float vBonusAct3 = 2;
+    private float vBonusAct1;
+    private float vBonusAct2;
+    private float vBonusAct3;
 
     private bool isIdle;
     private GameObject player;
@@ -64,6 +66,21 @@ public class FighterAI : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        /* Initialize values for the abilities based on difficulty */
+
+
+        // Min values for actions to scale by probability
+        vMinAct1 = 5 + (15 * difficulty / 4);
+        vMinAct2 = 15 + (15 * difficulty / 4);
+        vMinAct3 = 2 + (2 * difficulty / 1.5f);
+
+        // Max bonus amount for low probability of the action
+        vBonusAct1 = 5 + (5 * difficulty / 4);
+        vBonusAct2 = 7 + (7 * difficulty / 4);
+        vBonusAct3 = 2 + (2 * difficulty / 1.5f);
+
+
+
         probTable = new float[4, 4, 4];
         // initialize table
 

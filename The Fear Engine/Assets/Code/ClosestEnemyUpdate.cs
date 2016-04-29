@@ -31,9 +31,6 @@ public class ClosestEnemyUpdate : MonoBehaviour {
         {
             enemyDisplay.SetActive(true);
 
-            // works
-            print(currEnemy.name + " - closest Enemy: " + currDistance + " Health: " + currEhs.GetHealth() + "/" + currEhs.maxHealth);
-
             // refresh UI pieces
             enemyName.text = currEnemy.name + ": (" + ((int)currEhs.GetHealth()) + "/" + currEhs.maxHealth + ") ";
             healthBarObj.transform.localScale = new Vector3((currEhs.GetHealth() / currEhs.maxHealth), 1, 1);

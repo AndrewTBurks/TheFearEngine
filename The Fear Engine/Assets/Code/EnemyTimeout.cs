@@ -3,6 +3,7 @@ using System.Collections;
 
 public class EnemyTimeout : MonoBehaviour
 {
+    public float waitTime = 5;
 
     void Awake()
     {
@@ -12,7 +13,7 @@ public class EnemyTimeout : MonoBehaviour
 
     IEnumerator SelfTimeoutDestroy()
     {
-        yield return new WaitForSeconds(5);
-        GameObject.Destroy(gameObject);
+        yield return new WaitForSeconds(waitTime);
+        Destroy(gameObject);
     }
 }
