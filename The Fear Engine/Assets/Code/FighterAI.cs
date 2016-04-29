@@ -71,7 +71,7 @@ public class FighterAI : MonoBehaviour
 
         // Min values for actions to scale by probability
         vMinAct1 = 5 + (15 * difficulty / 4);
-        vMinAct2 = 15 + (15 * difficulty / 4);
+        vMinAct2 = 10 + (10 * difficulty / 4);
         vMinAct3 = 2 + (2 * difficulty / 1.5f);
 
         // Max bonus amount for low probability of the action

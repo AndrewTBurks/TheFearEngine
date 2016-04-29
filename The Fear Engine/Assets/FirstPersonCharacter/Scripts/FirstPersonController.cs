@@ -109,17 +109,20 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
             // Adding here
 
-            timer += Time.deltaTime;
+            
             if (webbed && timer < 5) //hit by web and will last for 5 seconds.
             {
                 m_RunSpeed = m_WalkSpeed;
+                timer += Time.deltaTime;
             }
 
             if (webbed && timer > 5) //after 5 seconds reset webbed and runspeed.
             {
                 m_RunSpeed = tmpspeed;
                 webbed = false;
+                timer = 0;
             }
+            
             if (hasSword)
             {
                 GameObject newobj = (GameObject)Instantiate(sword, this.transform.position + Vector3.right * -.5f, Quaternion.Euler(45, 90, 45));
@@ -322,6 +325,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 print("Hit");
                 StartCoroutine(DamagerOverTimeCoroutine(10.0f, 5.0f));                
             }
+        }
+
+        IEnumerator SprintReactivationTimer(float time)
+        {
+            print("Webbed");
+            yield return new WaitForSeconds(time);
+            m_RunSpeed = tmpspeed;
+            print("Normal Speed");            
         }
 
         IEnumerator DamagerOverTimeCoroutine(float damage, float duration)
