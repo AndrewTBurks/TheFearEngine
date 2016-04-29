@@ -29,3 +29,5 @@ EditorBuildSettings:
     path: Assets/Scenes/credits.unity
   - enabled: 1
     path: Assets/Scenes/FireLevel.unity
+  - enabled: 1
+    path: Assets/Scenes/loadlevels.unity
