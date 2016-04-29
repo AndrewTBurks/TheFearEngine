@@ -31,7 +31,8 @@ public class SanityHealSpawner : MonoBehaviour {
                                                     corner1.transform.position.z + Random.Range(0.0f, zRange)), 
                                         transform.rotation) as GameObject;
 
-        newObj.AddComponent<EnemyTimeout>().waitTime = despawnDelay;
+        newObj.AddComponent<EnemyTimeout>();
+        newObj.GetComponent<EnemyTimeout>().waitTime = despawnDelay;
         newObj.GetComponent<HealSanity>().healObject = newObj;
         newObj.GetComponent<HealSanity>().targetPlayer = player;
         newObj.GetComponent<HealSanity>().sanity = sanityManager;
