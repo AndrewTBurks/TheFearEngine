@@ -84,8 +84,10 @@ public class SanityManagerScript : MonoBehaviour {
     {
 		if (sanity <= 0) // game over
 		{
-			SceneManager.LoadScene ("LossScene");
-		}
+            //SceneManager.LoadScene ("LossScene");
+            Cursor.visible = true;
+            SceneManager.LoadScene(5);
+        }
 
       
 

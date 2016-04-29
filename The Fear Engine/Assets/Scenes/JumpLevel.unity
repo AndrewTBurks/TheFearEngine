@@ -597,7 +597,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 34
 --- !u!1 &50579312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1811,7 +1811,7 @@ Transform:
   m_LocalScale: {x: 1.83, y: 19.4, z: 4.88}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
 --- !u!1 &169034659
 GameObject:
   m_ObjectHideFlags: 0
@@ -5884,6 +5884,10 @@ Prefab:
       propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2309402, guid: a1c13f85cd97fa7499d5621b9282d357, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bd396b0c5ba433e4583ffaad5a8ae1cb, type: 2}
     m_RemovedComponents:
     - {fileID: 5454750, guid: a1c13f85cd97fa7499d5621b9282d357, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a1c13f85cd97fa7499d5621b9282d357, type: 2}
@@ -8480,7 +8484,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 30
 --- !u!1 &720953594
 GameObject:
   m_ObjectHideFlags: 0
@@ -8598,6 +8602,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2309402, guid: a1c13f85cd97fa7499d5621b9282d357, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bd396b0c5ba433e4583ffaad5a8ae1cb, type: 2}
     m_RemovedComponents:
     - {fileID: 5454750, guid: a1c13f85cd97fa7499d5621b9282d357, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a1c13f85cd97fa7499d5621b9282d357, type: 2}
@@ -9214,7 +9222,7 @@ Transform:
   - {fileID: 746839560}
   - {fileID: 60881991}
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 38
 --- !u!4 &791144310 stripped
 Transform:
   m_PrefabParentObject: {fileID: 439756, guid: 82641722e0272ff48842eac26d0b0092, type: 2}
@@ -10036,11 +10044,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 404892, guid: f874709de958bba48a55a43609cbb10b, type: 2}
       propertyPath: m_RootOrder
-      value: 35
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 172926, guid: f874709de958bba48a55a43609cbb10b, type: 2}
       propertyPath: m_Name
       value: EndLevelCheck
+      objectReference: {fileID: 0}
+    - target: {fileID: 404892, guid: f874709de958bba48a55a43609cbb10b, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 404892, guid: f874709de958bba48a55a43609cbb10b, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f874709de958bba48a55a43609cbb10b, type: 2}
@@ -15228,6 +15244,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 4.72
       objectReference: {fileID: 0}
+    - target: {fileID: 2309402, guid: a1c13f85cd97fa7499d5621b9282d357, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bd396b0c5ba433e4583ffaad5a8ae1cb, type: 2}
     m_RemovedComponents:
     - {fileID: 5454750, guid: a1c13f85cd97fa7499d5621b9282d357, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a1c13f85cd97fa7499d5621b9282d357, type: 2}
@@ -20173,7 +20193,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 22
 --- !u!1 &1737211395
 GameObject:
   m_ObjectHideFlags: 0
@@ -20537,6 +20557,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 4.72
       objectReference: {fileID: 0}
+    - target: {fileID: 2309402, guid: a1c13f85cd97fa7499d5621b9282d357, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bd396b0c5ba433e4583ffaad5a8ae1cb, type: 2}
     m_RemovedComponents:
     - {fileID: 5454750, guid: a1c13f85cd97fa7499d5621b9282d357, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a1c13f85cd97fa7499d5621b9282d357, type: 2}
