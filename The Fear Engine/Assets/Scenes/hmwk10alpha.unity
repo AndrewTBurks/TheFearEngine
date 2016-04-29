@@ -536,9 +536,17 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11492924, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: zoneText.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 11460540, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
       propertyPath: textTimes.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492924, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: textTimes.Array.size
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11437544, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
       propertyPath: isTutorial.Array.size
@@ -707,6 +715,22 @@ Prefab:
     - target: {fileID: 11465894, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
       propertyPath: isTutorial
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492924, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: zoneText.Array.data[3]
+      value: Don't stand too close to enemies while trying to attack them
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492924, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: textTimes.Array.data[3]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11429244, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: maxHealth
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 11470670, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
+      propertyPath: maxHealth
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c8d62a4317e145e4fafa7bb449c02fd6, type: 2}
